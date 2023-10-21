@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request,jsonify
-#from flask_cors import CORS,cross_origin
+from flask_cors import CORS,cross_origin
 import requests
 from urllib.request import urlopen as uReq
 
@@ -7,12 +7,12 @@ application = Flask(__name__) # initializing a flask app
 app=application
 
 @app.route('/',methods=['GET'])  # route to display the home page
-#@cross_origin()
+@cross_origin()
 def homePage():
     return render_template("index.html")
 
 @app.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
-#@cross_origin()
+@cross_origin()
 def get_weather():
     if request.method == 'POST':
         api_key = 'b2f7276693524dc1283929277faa0eae' 
